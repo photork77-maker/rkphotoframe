@@ -46,7 +46,20 @@ amount: price * 100,
 currency: "INR",
 name: "RK Photo Frame",
 description: "Custom Frame Order",
-handler: function (response) {
+handler: function (response) {handler: function (response) {
+const message =
+"New Order%0A" +
+"Name: " + name + "%0A" +
+"Phone: " + phone + "%0A" +
+"Address: " + address + "%0A" +
+"Price: ₹" + price + "%0A" +
+"Payment ID: " + response.razorpay_payment_id;
+
+const whatsappURL = "https://wa.me/YOUR_NUMBER?text=" + message;
+
+window.open(whatsappURL, "_blank");
+}
+
 alert("Payment Successful!");
 
 ```
