@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>RK Photo Frame</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body><header>RK Photo Frame</header>
+<body>
+
+<header>
+  RK Photo Frame
+  <p class="tagline">Premium Custom Framing</p>
+</header>
 
 <main>
 
   <h2>Upload Your Photo</h2>
   <input type="file" id="upload" accept="image/*">
-  <img id="preview" style="width:200px; display:none;">
+
+  <div id="framePreview">
+    <img id="preview" style="display:none;">
+  </div>
 
   <h2>Select Frame</h2>
   <div class="frame-gallery">
@@ -20,13 +27,14 @@
     <img src="images/wood.jpg" onclick="selectFrame(700, 'Wood Brown', this)">
     <img src="images/gold.jpg" onclick="selectFrame(1000, 'Golden Frame', this)">
   </div>
+
   <p>Selected Frame: <span id="frameName">None</span></p>
 
   <h2>Options</h2>
 
-<label>Mount:</label> <select id="mount"> <option value="200">With Mount</option> <option value="0">Without Mount</option> </select>
+<label>Mount:</label> <select id="mount"> <option value="200">With Mount (+₹200)</option> <option value="0">Without Mount</option> </select>
 
-<label>Paper:</label> <select id="paper"> <option value="100">Matte</option> <option value="150">Glossy</option> </select>
+<label>Paper:</label> <select id="paper"> <option value="100">Matte (+₹100)</option> <option value="150">Glossy (+₹150)</option> </select>
 
   <h2>Total Price: ₹<span id="price">0</span></h2>
 
@@ -39,35 +47,7 @@
 
 </main>
 
-
-  <h1>RK Photo Frame</h1>
-<p style="text-align:center;">Premium Custom Framing</p>
-
-  <h2>Upload Your Photo</h2>
-  <input type="file" id="upload" accept="image/*">
-  <br><br>
-  <img id="preview" style="width:200px; display:none;">
-
-  <h2>Customize Frame</h2>
-
-<label>Frame:</label> <select id="frame"> <option value="500">Classic Black</option> <option value="700">Wood Brown</option> <option value="1000">Golden Frame</option> </select>
-
-<label>Mount:</label> <select id="mount"> <option value="200">With Mount</option> <option value="0">Without Mount</option> </select>
-
-<label>Paper:</label> <select id="paper"> <option value="100">Matte</option> <option value="150">Glossy</option> </select>
-
-  <h3>Total Price: ₹<span id="price">0</span></h3>
-<h2>Customer Details</h2>
-
-<input type="text" id="name" placeholder="Your Name"><br><br> <input type="text" id="phone" placeholder="Phone Number"><br><br>
-
-<textarea id="address" placeholder="Delivery Address"></textarea><br><br>
-
-<button onclick="sendOrder()">Order on WhatsApp</button>
-
-
-  <script src="script.js"></script>
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
