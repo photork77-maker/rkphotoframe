@@ -12,9 +12,15 @@ text-align: center;
 font-size: 24px;
 }
 
+.tagline {
+font-size: 14px;
+margin-top: 5px;
+color: #ccc;
+}
+
 main {
 max-width: 500px;
-margin: 40px auto;
+margin: 30px auto;
 background: white;
 padding: 25px;
 border-radius: 10px;
@@ -28,7 +34,6 @@ margin-top: 25px;
 label {
 font-weight: bold;
 }
-
 
 input, textarea, select {
 width: 100%;
@@ -54,7 +59,41 @@ button:hover {
 background: #333;
 }
 
-#preview {
-margin-top: 15px;
+/* Frame Preview */
+#framePreview {
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 20px auto;
+padding: 20px;
+background: #eee;
+border: 12px solid black;
+border-radius: 8px;
+width: fit-content;
+}
+
+#framePreview img {
+width: 250px;
+max-width: 100%;
+display: block;
+}
+
+/* Frame Gallery */
+.frame-gallery {
+display: flex;
+gap: 10px;
+justify-content: center;
+}
+
+.frame-gallery img {
+width: 80px;
+height: 80px;
+object-fit: cover;
+cursor: pointer;
 border-radius: 5px;
+border: 2px solid transparent;
+}
+
+.frame-gallery img.selected {
+border: 2px solid black;
 }
