@@ -6,7 +6,39 @@
   <title>RK Photo Frame</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body><header>RK Photo Frame</header>
+
+<main>
+
+  <h2>Upload Your Photo</h2>
+  <input type="file" id="upload" accept="image/*">
+  <img id="preview" style="width:200px; display:none;">
+
+  <h2>Select Frame</h2>
+  <div class="frame-gallery">
+    <img src="images/black.jpg" onclick="selectFrame(500, 'Classic Black', this)">
+    <img src="images/wood.jpg" onclick="selectFrame(700, 'Wood Brown', this)">
+    <img src="images/gold.jpg" onclick="selectFrame(1000, 'Golden Frame', this)">
+  </div>
+  <p>Selected Frame: <span id="frameName">None</span></p>
+
+  <h2>Options</h2>
+
+<label>Mount:</label> <select id="mount"> <option value="200">With Mount</option> <option value="0">Without Mount</option> </select>
+
+<label>Paper:</label> <select id="paper"> <option value="100">Matte</option> <option value="150">Glossy</option> </select>
+
+  <h2>Total Price: ₹<span id="price">0</span></h2>
+
+  <h2>Customer Details</h2>
+  <input type="text" id="name" placeholder="Your Name">
+  <input type="text" id="phone" placeholder="Phone Number">
+  <textarea id="address" placeholder="Delivery Address"></textarea>
+
+<button onclick="sendOrder()">Order on WhatsApp</button>
+
+</main>
+
 
   <h1>RK Photo Frame</h1>
 <p style="text-align:center;">Premium Custom Framing</p>
