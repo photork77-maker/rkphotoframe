@@ -1,5 +1,5 @@
 function checkout() {
-alert("Proceeding to payment...");
+alert("Proceeding...");
 }
 
 // Image preview
@@ -32,47 +32,35 @@ document.getElementById("paper").onchange = updatePrice;
 
 updatePrice();
 
-// Razorpay Payment + WhatsApp
-function payNow() {
+// WhatsApp Order Function
+function sendOrder() {
 const price = document.getElementById("price").innerText;
 const name = document.getElementById("name").value;
 const phone = document.getElementById("phone").value;
 const address = document.getElementById("address").value;
+
+const frame = document.getElementById("frame").selectedOptions[0].text;
+const mount = document.getElementById("mount").selectedOptions[0].text;
+const paper = document.getElementById("paper").selectedOptions[0].text;
 
 if (!name || !phone || !address) {
 alert("Please fill all details");
 return;
 }
 
-var options = {
-key: "YOUR_RAZORPAY_KEY", // replace with your key
-amount: price * 100,
-currency: "INR",
-name: "RK Photo Frame",
-description: "Custom Frame Order",
+const message =
+"New Order\n\n" +
+"Name: " + name + "\n" +
+"Phone: " + phone + "\n" +
+"Address: " + address + "\n\n" +
+"Frame: " + frame + "\n" +
+"Mount: " + mount + "\n" +
+"Paper: " + paper + "\n\n" +
+"Total: ₹" + price;
 
-```
-handler: function (response) {
-  alert("Payment Successful!");
+const url =
+"https://wa.me/919997228844?text=" +
+encodeURIComponent(message);
 
-  const message =
-    `New Order\n\n` +
-    `Name: ${name}\n` +
-    `Phone: ${phone}\n` +
-    `Address: ${address}\n` +
-    `Price: ₹${price}\n` +
-    `Payment ID: ${response.razorpay_payment_id}`;
-
-  const encodedMessage = encodeURIComponent(message);
-
-  const whatsappURL = "https://wa.me/919997228844?text=" + encodedMessage;
-
-  window.open(whatsappURL, "_blank");
-}
-```
-
-};
-
-var rzp = new Razorpay(options);
-rzp.open();
+window.open(url, "_blank");
 }
