@@ -76,7 +76,7 @@ background: #333;
 
 /* WALL PREVIEW */
 .wall-preview {
-background: url('imageswall.jpg.jpg') center/cover no-repeat;
+background: url('imageswall.jpg') center/cover no-repeat;
 height: 250px;
 display: flex;
 justify-content: center;
