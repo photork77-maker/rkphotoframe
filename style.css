@@ -79,6 +79,26 @@ border: 12px solid black;
 padding: 10px;
 border-radius: 10px;
 }
+.wall-preview {
+background: url('images/wall.jpg') center/cover no-repeat;
+height: 300px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 20px 0;
+border-radius: 10px;
+}
+
+.frame {
+border: 15px solid black;
+padding: 10px;
+background: white;
+box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.frame img {
+width: 200px;
+}
 
 #framePreview img {
 width: 250px;
