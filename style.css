@@ -10,7 +10,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 gap: 15px;
-background: black
+background: black;
 color: white;
 padding: 20px;
 }
@@ -76,7 +76,7 @@ background: #333;
 
 /* WALL PREVIEW */
 .wall-preview {
-background: url('imageswall.jpg') center/cover no-repeat;
+background: url('images/wall.jpg') center/cover no-repeat;
 height: 250px;
 display: flex;
 justify-content: center;
