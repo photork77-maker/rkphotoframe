@@ -55,7 +55,7 @@ const message =
 "Price: ₹" + price + "%0A" +
 "Payment ID: " + response.razorpay_payment_id;
 
-const whatsappURL = "https://wa.me/YOUR_NUMBER?text=" + message;
+const whatsappURL = "https://wa.me/9997228844?text=" + message;
 
 window.open(whatsappURL, "_blank");
 }
