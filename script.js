@@ -1,99 +1,83 @@
-body {
-font-family: Arial, sans-serif;
-margin: 0;
-background: #f5f5f5;
+let selectedFramePrice = 0;
+let selectedFrameName = "";
+
+// Image preview
+document.getElementById('upload').onchange = function (e) {
+const file = e.target.files[0];
+const reader = new FileReader();
+
+reader.onload = function () {
+const img = document.getElementById('preview');
+img.src = reader.result;
+img.style.display = 'block';
+};
+
+reader.readAsDataURL(file);
+};
+
+// Frame selection
+function selectFrame(price, name, element) {
+selectedFramePrice = price;
+selectedFrameName = name;
+
+document.getElementById("frameName").innerText = name;
+
+document.querySelectorAll(".frame-gallery img").forEach(img => {
+img.classList.remove("selected");
+});
+
+element.classList.add("selected");
+
+const frameBox = document.getElementById("framePreview");
+
+if (name === "Classic Black") {
+frameBox.style.border = "12px solid black";
+} else if (name === "Wood Brown") {
+frameBox.style.border = "12px solid brown";
+} else if (name === "Golden Frame") {
+frameBox.style.border = "12px solid gold";
 }
 
-header {
-background: black;
-color: white;
-padding: 20px;
-text-align: center;
-font-size: 24px;
+updatePrice();
 }
 
-.tagline {
-font-size: 14px;
-margin-top: 5px;
-color: #ccc;
+// Price calculation
+function updatePrice() {
+const mount = parseInt(document.getElementById("mount").value);
+const paper = parseInt(document.getElementById("paper").value);
+
+const total = selectedFramePrice + mount + paper;
+document.getElementById("price").innerText = total;
 }
 
-main {
-max-width: 500px;
-margin: 30px auto;
-background: white;
-padding: 25px;
-border-radius: 10px;
-box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+document.getElementById("mount").onchange = updatePrice;
+document.getElementById("paper").onchange = updatePrice;
+
+updatePrice();
+
+// WhatsApp order
+function sendOrder() {
+const price = document.getElementById("price").innerText;
+const name = document.getElementById("name").value;
+const phone = document.getElementById("phone").value;
+const address = document.getElementById("address").value;
+
+if (!name || !phone || !address) {
+alert("Please fill all details");
+return;
 }
 
-h2 {
-margin-top: 25px;
-}
+const message =
+"New Order\n\n" +
+"Name: " + name + "\n" +
+"Phone: " + phone + "\n" +
+"Address: " + address + "\n\n" +
+"Frame: " + selectedFrameName + "\n" +
+"Total: ₹" + price;
 
-label {
-font-weight: bold;
-}
+const url =
+"https://wa.me/919997228844?text=" +
+encodeURIComponent(message);
 
-input, textarea, select {
-width: 100%;
-padding: 10px;
-margin-top: 8px;
-margin-bottom: 15px;
-border: 1px solid #ccc;
-border-radius: 5px;
-}
-
-button {
-width: 100%;
-padding: 15px;
-background: black;
-color: white;
-border: none;
-font-size: 16px;
-border-radius: 5px;
-cursor: pointer;
-}
-
-button:hover {
-background: #333;
-}
-
-/* Frame Preview */
-#framePreview {
-display: flex;
-justify-content: center;
-align-items: center;
-margin: 20px auto;
-padding: 20px;
-background: #eee;
-border: 12px solid black;
-border-radius: 8px;
-width: fit-content;
-}
-
-#framePreview img {
-width: 250px;
-max-width: 100%;
-display: block;
-}
-
-/* Frame Gallery */
-.frame-gallery {
-display: flex;
-gap: 10px;
-justify-content: center;
-}
-
-.frame-gallery img {
-width: 80px;
-height: 80px;
-object-fit: cover;
-cursor: pointer;
-border-radius: 5px;
-border: 2px solid transparent;
-}
-
-.frame-gallery img.selected {
-border: 2px solid black;
+window.open(url, "_blank");
 }
