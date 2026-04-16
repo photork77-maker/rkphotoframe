@@ -29,7 +29,43 @@ document.getElementById("mount").onchange = updatePrice;
 document.getElementById("paper").onchange = updatePrice;
 
 updatePrice();
-function payNow() {
+function function payNow() {
+const price = document.getElementById("price").innerText;
+const name = document.getElementById("name").value;
+const phone = document.getElementById("phone").value;
+const address = document.getElementById("address").value;
+
+if (!name || !phone || !address) {
+alert("Please fill all details");
+return;
+}
+
+var options = {
+key: "YOUR_RAZORPAY_KEY",
+amount: price * 100,
+currency: "INR",
+name: "RK Photo Frame",
+description: "Custom Frame Order",
+handler: function (response) {
+alert("Payment Successful!");
+
+```
+  console.log({
+    name,
+    phone,
+    address,
+    price,
+    paymentId: response.razorpay_payment_id
+  });
+}
+```
+
+};
+
+var rzp = new Razorpay(options);
+rzp.open();
+}
+
 const price = document.getElementById("price").innerText;
 
 var options = {
