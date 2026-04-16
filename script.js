@@ -1,5 +1,4 @@
-let selectedFramePrice = 0;
-let selectedFrameName = "";
+let framePrice = 300;
 
 // Image preview
 document.getElementById('upload').onchange = function (e) {
@@ -16,27 +15,13 @@ reader.readAsDataURL(file);
 };
 
 // Frame selection
-function selectFrame(price, name, element) {
-selectedFramePrice = price;
-selectedFrameName = name;
+function selectFrame(el, price) {
+document.querySelectorAll('.frame-gallery img')
+.forEach(img => img.classList.remove('selected'));
 
-document.getElementById("frameName").innerText = name;
+el.classList.add('selected');
 
-document.querySelectorAll(".frame-gallery img").forEach(img => {
-img.classList.remove("selected");
-});
-
-element.classList.add("selected");
-
-const frameBox = document.getElementById("framePreview");
-
-if (name === "Classic Black") {
-frameBox.style.border = "12px solid black";
-} else if (name === "Wood Brown") {
-frameBox.style.border = "12px solid brown";
-} else if (name === "Golden Frame") {
-frameBox.style.border = "12px solid gold";
-}
+framePrice = price;
 
 updatePrice();
 }
@@ -46,7 +31,8 @@ function updatePrice() {
 const mount = parseInt(document.getElementById("mount").value);
 const paper = parseInt(document.getElementById("paper").value);
 
-const total = selectedFramePrice + mount + paper;
+const total = framePrice + mount + paper;
+
 document.getElementById("price").innerText = total;
 }
 
@@ -55,8 +41,8 @@ document.getElementById("paper").onchange = updatePrice;
 
 updatePrice();
 
-// WhatsApp order
-function sendOrder() {
+// WhatsApp Order
+function placeOrder() {
 const price = document.getElementById("price").innerText;
 const name = document.getElementById("name").value;
 const phone = document.getElementById("phone").value;
@@ -68,16 +54,13 @@ return;
 }
 
 const message =
-"New Order\n\n" +
-"Name: " + name + "\n" +
-"Phone: " + phone + "\n" +
-"Address: " + address + "\n\n" +
-"Frame: " + selectedFrameName + "\n" +
-"Total: ₹" + price;
+`New Order:
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
+Total Price: ₹${price}`;
 
-const url =
-"https://wa.me/919997228844?text=" +
-encodeURIComponent(message);
+const url = "https://wa.me/91YOURNUMBER?text=" + encodeURIComponent(message);
 
 window.open(url, "_blank");
 }
