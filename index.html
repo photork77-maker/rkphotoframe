@@ -8,43 +8,65 @@
 <body>
 
 <header>
-  <img src="images/logo.png" class="logo">
-  <p class="tagline">Premium Custom Framing</p>
+  RK Photo Frame
+  <div class="tagline">Premium Custom Framing</div>
 </header>
 
+<!-- HERO -->
+
+<section class="hero">
+  <h1>Turn Your Photos Into Beautiful Frames</h1>
+  <p>Premium Custom Framing Delivered to Your Door</p>
+</section>
 
 <main>
 
-  <h2>Upload Your Photo</h2>
-  <input type="file" id="upload" accept="image/*">
+<h2>Upload Your Photo</h2>
+<input type="file" id="upload">
 
-  <div id="framePreview">
-    <img id="preview" style="display:none;">
+<div id="framePreview">
+  <img id="preview" />
+</div>
+
+<h2>Select Frame</h2>
+<div class="frame-gallery">
+  <img src="images/frame1.jpg" onclick="selectFrame(this,300)">
+  <img src="images/frame2.jpg" onclick="selectFrame(this,400)">
+  <img src="images/frame3.jpg" onclick="selectFrame(this,500)">
+</div>
+
+<h2>Mount</h2>
+<select id="mount">
+  <option value="0">No Mount</option>
+  <option value="200">With Mount (+₹200)</option>
+</select>
+
+<h2>Paper</h2>
+<select id="paper">
+  <option value="0">Normal</option>
+  <option value="300">Premium (+₹300)</option>
+</select>
+
+<h2>Total Price: ₹<span id="price">300</span></h2>
+
+<h2>Customer Details</h2>
+<input type="text" id="name" placeholder="Your Name">
+<input type="text" id="phone" placeholder="Phone Number">
+<textarea id="address" placeholder="Delivery Address"></textarea>
+
+<button onclick="placeOrder()">Order on WhatsApp</button>
+
+<!-- WHY SECTION -->
+
+<section class="features">
+  <h2>Why Choose RK Photo Frame?</h2>
+  <div class="feature-box">
+    <p>🖼️ Premium Quality Frames</p>
+    <p>🚚 Fast Delivery</p>
+    <p>🎨 Custom Designs</p>
+    <p>💬 Easy WhatsApp Ordering</p>
   </div>
-
-  <h2>Select Frame</h2>
-  <div class="frame-gallery">
-    <img src="images/black.jpg" onclick="selectFrame(500, 'Classic Black', this)">
-    <img src="images/wood.jpg" onclick="selectFrame(700, 'Wood Brown', this)">
-    <img src="images/gold.jpg" onclick="selectFrame(1000, 'Golden Frame', this)">
-  </div>
-
-  <p>Selected Frame: <span id="frameName">None</span></p>
-
-  <h2>Options</h2>
-
-<label>Mount:</label> <select id="mount"> <option value="200">With Mount (+₹200)</option> <option value="0">Without Mount</option> </select>
-
-<label>Paper:</label> <select id="paper"> <option value="100">Matte (+₹100)</option> <option value="150">Glossy (+₹150)</option> </select>
-
-  <h2>Total Price: ₹<span id="price">0</span></h2>
-
-  <h2>Customer Details</h2>
-  <input type="text" id="name" placeholder="Your Name">
-  <input type="text" id="phone" placeholder="Phone Number">
-  <textarea id="address" placeholder="Delivery Address"></textarea>
-
-<button onclick="sendOrder()">Order on WhatsApp</button>
+</section>
 
 </main>
 
