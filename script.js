@@ -14,7 +14,7 @@ img.style.display = 'block';
 reader.readAsDataURL(file);
 };
 
-// Frame selection
+// Frame select
 function selectFrame(el, price) {
 document.querySelectorAll('.frame-gallery img')
 .forEach(img => img.classList.remove('selected'));
@@ -22,17 +22,15 @@ document.querySelectorAll('.frame-gallery img')
 el.classList.add('selected');
 
 framePrice = price;
-
 updatePrice();
 }
 
-// Price calculation
+// Price
 function updatePrice() {
 const mount = parseInt(document.getElementById("mount").value);
 const paper = parseInt(document.getElementById("paper").value);
 
 const total = framePrice + mount + paper;
-
 document.getElementById("price").innerText = total;
 }
 
@@ -41,7 +39,7 @@ document.getElementById("paper").onchange = updatePrice;
 
 updatePrice();
 
-// WhatsApp Order
+// WhatsApp order
 function placeOrder() {
 const price = document.getElementById("price").innerText;
 const name = document.getElementById("name").value;
@@ -60,7 +58,13 @@ Phone: ${phone}
 Address: ${address}
 Total Price: ₹${price}`;
 
-const url = "https://wa.me/91YOURNUMBER?text=" + encodeURIComponent(message);
+const url = "https://wa.me/919997228844?text=" + encodeURIComponent(message);
 
 window.open(url, "_blank");
 }
+
+// Auto select first frame
+window.onload = function() {
+const first = document.querySelector(".frame-gallery img");
+if (first) first.click();
+};
