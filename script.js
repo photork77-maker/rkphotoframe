@@ -1,66 +1,99 @@
-function checkout() {
-alert("Proceeding...");
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+background: #f5f5f5;
 }
 
-// Image preview
-document.getElementById('upload').onchange = function (e) {
-const file = e.target.files[0];
-const reader = new FileReader();
-
-reader.onload = function () {
-const img = document.getElementById('preview');
-img.src = reader.result;
-img.style.display = 'block';
-};
-
-reader.readAsDataURL(file);
-};
-
-// Price calculation
-function updatePrice() {
-const frame = parseInt(document.getElementById("frame").value);
-const mount = parseInt(document.getElementById("mount").value);
-const paper = parseInt(document.getElementById("paper").value);
-
-const total = frame + mount + paper;
-document.getElementById("price").innerText = total;
+header {
+background: black;
+color: white;
+padding: 20px;
+text-align: center;
+font-size: 24px;
 }
 
-document.getElementById("frame").onchange = updatePrice;
-document.getElementById("mount").onchange = updatePrice;
-document.getElementById("paper").onchange = updatePrice;
-
-updatePrice();
-
-// WhatsApp Order Function
-function sendOrder() {
-const price = document.getElementById("price").innerText;
-const name = document.getElementById("name").value;
-const phone = document.getElementById("phone").value;
-const address = document.getElementById("address").value;
-
-const frame = document.getElementById("frame").selectedOptions[0].text;
-const mount = document.getElementById("mount").selectedOptions[0].text;
-const paper = document.getElementById("paper").selectedOptions[0].text;
-
-if (!name || !phone || !address) {
-alert("Please fill all details");
-return;
+.tagline {
+font-size: 14px;
+margin-top: 5px;
+color: #ccc;
 }
 
-const message =
-"New Order\n\n" +
-"Name: " + name + "\n" +
-"Phone: " + phone + "\n" +
-"Address: " + address + "\n\n" +
-"Frame: " + frame + "\n" +
-"Mount: " + mount + "\n" +
-"Paper: " + paper + "\n\n" +
-"Total: ₹" + price;
+main {
+max-width: 500px;
+margin: 30px auto;
+background: white;
+padding: 25px;
+border-radius: 10px;
+box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
 
-const url =
-"https://wa.me/919997228844?text=" +
-encodeURIComponent(message);
+h2 {
+margin-top: 25px;
+}
 
-window.open(url, "_blank");
+label {
+font-weight: bold;
+}
+
+input, textarea, select {
+width: 100%;
+padding: 10px;
+margin-top: 8px;
+margin-bottom: 15px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+
+button {
+width: 100%;
+padding: 15px;
+background: black;
+color: white;
+border: none;
+font-size: 16px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+button:hover {
+background: #333;
+}
+
+/* Frame Preview */
+#framePreview {
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 20px auto;
+padding: 20px;
+background: #eee;
+border: 12px solid black;
+border-radius: 8px;
+width: fit-content;
+}
+
+#framePreview img {
+width: 250px;
+max-width: 100%;
+display: block;
+}
+
+/* Frame Gallery */
+.frame-gallery {
+display: flex;
+gap: 10px;
+justify-content: center;
+}
+
+.frame-gallery img {
+width: 80px;
+height: 80px;
+object-fit: cover;
+cursor: pointer;
+border-radius: 5px;
+border: 2px solid transparent;
+}
+
+.frame-gallery img.selected {
+border: 2px solid black;
 }
