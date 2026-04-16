@@ -96,4 +96,9 @@ border: 2px solid transparent;
 
 .frame-gallery img.selected {
 border: 2px solid black;
+}.logo {
+width: 120px;
+display: block;
+margin: 0 auto 10px;
 }
+
