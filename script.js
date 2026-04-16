@@ -29,3 +29,20 @@ document.getElementById("mount").onchange = updatePrice;
 document.getElementById("paper").onchange = updatePrice;
 
 updatePrice();
+function payNow() {
+const price = document.getElementById("price").innerText;
+
+var options = {
+key: "YOUR_RAZORPAY_KEY",
+amount: price * 100, // in paise
+currency: "INR",
+name: "RK Photo Frame",
+description: "Custom Frame Order",
+handler: function (response) {
+alert("Payment Successful!");
+}
+};
+
+var rzp = new Razorpay(options);
+rzp.open();
+}
