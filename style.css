@@ -10,7 +10,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 gap: 15px;
-background: black;
+background: black
 color: white;
 padding: 20px;
 }
@@ -26,7 +26,7 @@ color: #ccc;
 
 /* HERO */
 .hero {
-background: url('imageswall.jpg.jpg') center/cover no-repeat;
+background: url('images/wall.jpg') center/cover no-repeat;
 height: 220px;
 color: white;
 display: flex;
