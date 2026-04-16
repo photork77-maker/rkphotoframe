@@ -1,47 +1,15 @@
-<!DOCTYPE html>
+<input type="file" id="upload" accept="image/*">
+<img id="preview" style="width:200px; margin-top:20px; display:none;">
 
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>RK Photo Frame</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <header>
-    <h1>RK Photo Frame</h1>
-  </header>
-
-  <main>
-    <h2>Customize Your Frame</h2>
-
-```
-<label>Frame Type:</label>
-<select>
-  <option>Classic Black</option>
-  <option>Wood Brown</option>
-  <option>Golden Frame</option>
-</select>
-
-<label>Mount:</label>
-<select>
-  <option>With Mount</option>
-  <option>Without Mount</option>
-</select>
-
-<label>Paper:</label>
-<select>
-  <option>Matte</option>
-  <option>Glossy</option>
-</select>
-
-<button onclick="checkout()">Proceed to Checkout</button>
-```
-
-  </main>
-
-  <script src="script.js"></script>
-
-</body>
-</html>
-
+<script>
+document.getElementById('upload').onchange = function (e) {
+  const file = e.target.files[0];
+  const reader = new FileReader();
+  reader.onload = function () {
+    const img = document.getElementById('preview');
+    img.src = reader.result;
+    img.style.display = 'block';
+  };
+  reader.readAsDataURL(file);
+};
+</script>
