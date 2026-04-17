@@ -1,77 +1,80 @@
 <!DOCTYPE html>
-
 <html>
 <head>
-  <title>RK Photo Frame</title>
-  <link rel="stylesheet" href="style.css">
+<title>RK Photo Frame</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
-  <img src="images/logo.png" class="logo">
-  <div>
-    RK Photo Frame
-    <div class="tagline">Premium Custom Framing</div>
-  </div>
+<img src="images/logo.png" class="logo">
+<h2>RK Photo Frame</h2>
+<p class="tagline">Premium Custom Framing</p>
 </header>
 
-<!-- HERO -->
+<section class="container">
 
-<section class="hero">
-  <h1>Turn Your Photos Into Beautiful Frames</h1>
-  <p>Premium Custom Framing Delivered to Your Door</p>
-</section>
+<!-- PREVIEW -->
+<div class="preview-section">
+<div class="wall">
 
-<main>
+<div class="frame-container">
+<img id="userImage" class="photo">
 
-<h2>Upload Your Photo</h2>
+<div id="mountLayer"></div>
+<div id="frameLayer" class="frame-black"></div>
+</div>
+
+</div>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+
+<h3>Upload Your Photo</h3>
 <input type="file" id="upload">
 
-<!-- WALL PREVIEW -->
-
-<div class="wall-preview">
-  <div class="frame">
-    <img id="preview" />
-  </div>
+<h3>Select Frame</h3>
+<div class="frames">
+<img src="images/Goldpremium.jpg" onclick="selectFrame('goldpremium')">
+<img src="images/black.jpg" onclick="selectFrame('black')">
+<img src="images/brown.jpg" onclick="selectFrame('brown')">
+<img src="images/browngold.jpg" onclick="selectFrame('browngold')">
+<img src="images/goldcarving.jpg" onclick="selectFrame('goldcarving')">
+<img src="images/goldvintage.jpg" onclick="selectFrame('goldvintage')">
+<img src="images/wood.jpg" onclick="selectFrame('wood')">
 </div>
 
-<h2>Select Frame</h2>
-<div class="frame-gallery">
-  <img src="https://via.placeholder.com/100" onclick="selectFrame(this,300)">
-  <img src="https://via.placeholder.com/100" onclick="selectFrame(this,400)">
-  <img src="https://via.placeholder.com/100" onclick="selectFrame(this,500)">
-</div>
+<h3>Select Size</h3>
+<select id="size">
+<option value="600">Small (₹600)</option>
+<option value="1000">Medium (₹1000)</option>
+<option value="1600">Large (₹1600)</option>
+</select>
 
-<h2>Mount</h2>
+<h3>Mount</h3>
 <select id="mount">
-  <option value="0">No Mount</option>
-  <option value="200">With Mount (+₹200)</option>
+<option value="0">Without Mount</option>
+<option value="100">With Mount (+₹100)</option>
 </select>
 
-<h2>Paper</h2>
-<select id="paper">
-  <option value="0">Normal</option>
-  <option value="300">Premium (+₹300)</option>
-</select>
+<h3>Delivery</h3>
+<label><input type="checkbox" id="delivery"> Add Delivery (+₹100)</label>
 
-<h2>Total Price: ₹<span id="price">300</span></h2>
+<h2>Total Price: ₹<span id="price">600</span></h2>
 
-<h2>Customer Details</h2>
+<h3>Customer Details</h3>
 <input type="text" id="name" placeholder="Your Name">
 <input type="text" id="phone" placeholder="Phone Number">
 <textarea id="address" placeholder="Delivery Address"></textarea>
 
-<button onclick="placeOrder()">Order on WhatsApp</button>
+<button onclick="orderNow()">Order on WhatsApp</button>
 
-<p class="trust">
-✔ 100% Quality Guarantee  
-✔ Cash on Delivery Available  
-✔ Trusted by Customers
-</p>
+</div>
 
-</main>
+</section>
 
 <script src="script.js"></script>
-
 </body>
 </html>
