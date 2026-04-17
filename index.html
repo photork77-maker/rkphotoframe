@@ -1,79 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>RK Photo Frame</title>
-<link rel="stylesheet" href="style.css">
+  <title>RK Photo Frame</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-<h2>RK Photo Frame</h2>
-<p>Premium Custom Framing</p>
+  <img src="images/logo.png" class="logo">
+  <h2>RK Photo Frame</h2>
 </header>
 
-<section class="container">
-
-<!-- PREVIEW -->
-<div class="preview">
-<div class="wall">
-
-<div id="frameBox" class="frame-box">
-
-<div id="mountBox" class="mount-box">
-
-<img id="userImage" class="photo">
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-<!-- CONTROLS -->
-<div class="controls">
-
-<h3>Upload Photo</h3>
-<input type="file" id="upload">
-
-<h3>Frame Style</h3>
-<select id="frame">
-<option value="black">Black</option>
-<option value="gold">Gold</option>
-<option value="wood">Wood</option>
-<option value="brown">Brown</option>
-</select>
-
-<h3>Size</h3>
-<select id="size">
-<option value="600">Small (₹600)</option>
-<option value="1000">Medium (₹1000)</option>
-<option value="1600">Large (₹1600)</option>
-</select>
-
-<h3>Mount</h3>
-<select id="mount">
-<option value="0">Without Mount</option>
-<option value="100">With Mount (+₹100)</option>
-</select>
-
-<h3>Delivery</h3>
-<label><input type="checkbox" id="delivery"> Add Delivery (+₹100)</label>
-
-<h2>Total: ₹<span id="price">600</span></h2>
-
-<h3>Details</h3>
-<input id="name" placeholder="Name">
-<input id="phone" placeholder="Phone">
-<textarea id="address" placeholder="Address"></textarea>
-
-<button onclick="orderNow()">Order on WhatsApp</button>
-
-</div>
-
+<!-- HERO -->
+<section class="hero">
+  <h1>Turn Your Walls Into Art</h1>
+  <p>Premium Frames • Canvas • Aesthetic Decor</p>
+  <a href="#categories" class="btn">Shop Now</a>
 </section>
 
-<script src="script.js"></script>
+<!-- CATEGORIES -->
+<section id="categories">
+  <h2>Shop by Category</h2>
+
+  <div class="grid">
+
+    <!-- CORE -->
+    <div class="card">Canvas Prints</div>
+    <div class="card">Photo Frames</div>
+    <div class="card">Leather Frames</div>
+    <div class="card">Collage Frames</div>
+    <div class="card">Floating Frames</div>
+
+    <!-- SPIRITUAL -->
+    <div class="card">Feng Shui</div>
+    <div class="card">Vastu</div>
+    <div class="card">Religious Frames</div>
+
+    <!-- MODERN -->
+    <div class="card">Gen-Z Posters</div>
+    <div class="card">Minimal Art</div>
+    <div class="card">Motivational Frames</div>
+    <div class="card">Abstract Art</div>
+
+    <!-- ROOM -->
+    <div class="card">Living Room</div>
+    <div class="card">Bedroom Decor</div>
+    <div class="card">Office Frames</div>
+
+    <!-- OCCASION -->
+    <div class="card">Gift Collection</div>
+    <div class="card">Anniversary Frames</div>
+    <div class="card">Birthday Frames</div>
+
+  </div>
+</section>
+
+<!-- WHATSAPP CTA -->
+<section class="cta">
+  <h2>Need Help Choosing?</h2>
+  <a href="https://wa.me/919997228844" target="_blank">Chat on WhatsApp</a>
+</section>
+
 </body>
 </html>
