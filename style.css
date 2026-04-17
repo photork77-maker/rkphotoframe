@@ -109,3 +109,19 @@ header {
   cursor: pointer;
   width: 100%;
 }
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  transition: 0.3s;
+  display: block;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background: black;
+  color: white;
+}
