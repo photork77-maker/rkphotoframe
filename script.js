@@ -40,7 +40,17 @@ updatePrice();
 
 /* WHATSAPP */
 function orderNow() {
+function order(name, price) {
 
+let message =
+`New Order
+Product: ${name}
+Price: ₹${price}`;
+
+let url = "https://wa.me/919997228844?text=" + encodeURIComponent(message);
+
+window.open(url, "_blank");
+}
 let name = document.getElementById("name").value;
 let phone = document.getElementById("phone").value;
 let address = document.getElementById("address").value;
