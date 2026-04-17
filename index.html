@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<img id="frameOverlay" src="images/gold.png">
 <head>
 <title>RK Photo Frame</title>
 <link rel="stylesheet" href="style.css">
@@ -9,22 +8,24 @@
 <body>
 
 <header>
-<img src="images/logo.png" class="logo">
 <h2>RK Photo Frame</h2>
-<p class="tagline">Premium Custom Framing</p>
+<p>Premium Custom Framing</p>
 </header>
 
 <section class="container">
 
 <!-- PREVIEW -->
-<div class="preview-section">
+<div class="preview">
 <div class="wall">
 
-<div class="frame-container">
+<div id="frameBox" class="frame-box">
+
+<div id="mountBox" class="mount-box">
+
 <img id="userImage" class="photo">
-<img id="frameImage" class="frame-img">
-<div id="mountLayer"></div>
-<div id="frameLayer" class="frame-black"></div>
+
+</div>
+
 </div>
 
 </div>
@@ -33,21 +34,18 @@
 <!-- CONTROLS -->
 <div class="controls">
 
-<h3>Upload Your Photo</h3>
+<h3>Upload Photo</h3>
 <input type="file" id="upload">
 
-<h3>Select Frame</h3>
-<div class="frames">
-<img src="images/Goldpremium.jpg" onclick="selectFrame('goldpremium')">
-<img src="images/black.jpg" onclick="selectFrame('black')">
-<img src="images/brown.jpg" onclick="selectFrame('brown')">
-<img src="images/browngold.jpg" onclick="selectFrame('browngold')">
-<img src="images/goldcarving.jpg" onclick="selectFrame('goldcarving')">
-<img src="images/goldvintage.jpg" onclick="selectFrame('goldvintage')">
-<img src="images/wood.jpg" onclick="selectFrame('wood')">
-</div>
+<h3>Frame Style</h3>
+<select id="frame">
+<option value="black">Black</option>
+<option value="gold">Gold</option>
+<option value="wood">Wood</option>
+<option value="brown">Brown</option>
+</select>
 
-<h3>Select Size</h3>
+<h3>Size</h3>
 <select id="size">
 <option value="600">Small (₹600)</option>
 <option value="1000">Medium (₹1000)</option>
@@ -63,12 +61,12 @@
 <h3>Delivery</h3>
 <label><input type="checkbox" id="delivery"> Add Delivery (+₹100)</label>
 
-<h2>Total Price: ₹<span id="price">600</span></h2>
+<h2>Total: ₹<span id="price">600</span></h2>
 
-<h3>Customer Details</h3>
-<input type="text" id="name" placeholder="Your Name">
-<input type="text" id="phone" placeholder="Phone Number">
-<textarea id="address" placeholder="Delivery Address"></textarea>
+<h3>Details</h3>
+<input id="name" placeholder="Name">
+<input id="phone" placeholder="Phone">
+<textarea id="address" placeholder="Address"></textarea>
 
 <button onclick="orderNow()">Order on WhatsApp</button>
 
