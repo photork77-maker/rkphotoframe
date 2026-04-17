@@ -15,20 +15,17 @@ reader.readAsDataURL(file);
 /* FRAME SELECT */
 function selectFrame(frame) {
 
-const frameLayer = document.getElementById("frameLayer");
-frameLayer.className = "";
+const frameImg = document.getElementById("frameImage");
 
-if (frame === "goldpremium") frameLayer.classList.add("frame-gold");
-if (frame === "black") frameLayer.classList.add("frame-black");
-if (frame === "wood") frameLayer.classList.add("frame-wood");
-if (frame === "brown") frameLayer.classList.add("frame-brown");
-if (frame === "browngold") frameLayer.classList.add("frame-temple");
-if (frame === "goldcarving") frameLayer.classList.add("frame-temple");
-if (frame === "goldvintage") frameLayer.classList.add("frame-vintage");
+if (frame === "gold") frameImg.src = "images/gold.jpg";
+if (frame === "black") frameImg.src = "images/black.jpg";
+if (frame === "wood") frameImg.src = "images/wood.jpg";
+if (frame === "brown") frameImg.src = "images/brown.jpg";
+if (frame === "temple") frameImg.src = "images/goldcarving.jpg";
+if (frame === "mini") frameImg.src = "images/browngold.jpg";
 
 currentFrame = frame;
 }
-
 /* PRICE */
 function updatePrice() {
 let size = parseInt(document.getElementById("size").value);
