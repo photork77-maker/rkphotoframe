@@ -1,6 +1,4 @@
-let currentFrame = "black";
-
-/* IMAGE UPLOAD */
+/* UPLOAD */
 document.getElementById("upload").onchange = function(e) {
 const file = e.target.files[0];
 const reader = new FileReader();
@@ -12,34 +10,25 @@ document.getElementById("userImage").src = reader.result;
 reader.readAsDataURL(file);
 };
 
-/* FRAME SELECT */
-function selectFrame(frame) {
+/* FRAME CHANGE */
+document.getElementById("frame").onchange = function() {
+const frameBox = document.getElementById("frameBox");
+frameBox.className = "frame-box " + "frame-" + this.value;
+};
 
-const frameImg = document.getElementById("frameImage");
-
-if (frame === "gold") frameImg.src = "images/gold.jpg";
-if (frame === "black") frameImg.src = "images/black.jpg";
-if (frame === "wood") frameImg.src = "images/wood.jpg";
-if (frame === "brown") frameImg.src = "images/brown.jpg";
-if (frame === "temple") frameImg.src = "images/goldcarving.jpg";
-if (frame === "mini") frameImg.src = "images/browngold.jpg";
-
-currentFrame = frame;
-}
 /* PRICE */
 function updatePrice() {
 let size = parseInt(document.getElementById("size").value);
 let mount = parseInt(document.getElementById("mount").value);
 let delivery = document.getElementById("delivery").checked ? 100 : 0;
 
-let total = size + mount + delivery;
-document.getElementById("price").innerText = total;
+document.getElementById("price").innerText = size + mount + delivery;
 
-/* MOUNT PREVIEW */
+/* MOUNT SHOW/HIDE */
 if (mount > 0) {
-document.getElementById("mountLayer").style.display = "block";
+document.getElementById("mountBox").style.display = "block";
 } else {
-document.getElementById("mountLayer").style.display = "none";
+document.getElementById("mountBox").style.display = "none";
 }
 }
 
@@ -49,7 +38,7 @@ document.getElementById("delivery").onchange = updatePrice;
 
 updatePrice();
 
-/* WHATSAPP ORDER */
+/* WHATSAPP */
 function orderNow() {
 
 let name = document.getElementById("name").value;
@@ -57,37 +46,17 @@ let phone = document.getElementById("phone").value;
 let address = document.getElementById("address").value;
 let price = document.getElementById("price").innerText;
 
-let size = document.getElementById("size").value;
-let mount = document.getElementById("mount").value;
-let delivery = document.getElementById("delivery").checked ? "Yes" : "No";
-
-let frameNames = {
-goldpremium: "Gold Premium Frame",
-black: "Black Frame",
-wood: "Wooden Frame",
-brown: "Brown Frame",
-browngold: "Brown Gold Frame",
-goldcarving: "Gold Carving Frame",
-goldvintage: "Vintage Gold Frame"
-};
-
 if (!name || !phone || !address) {
-alert("Please fill all details");
+alert("Fill all details");
 return;
 }
 
-let message =
+let msg =
 `New Order
 Name: ${name}
 Phone: ${phone}
 Address: ${address}
-Frame: ${frameNames[currentFrame]}
-Size: ${size}
-Mount: ${mount == 0 ? "No" : "Yes"}
-Delivery: ${delivery}
-Total: ₹${price}`;
+Price: ₹${price}`;
 
-let url = "https://wa.me/919997228844?text=" + encodeURIComponent(message);
-
-window.open(url, "_blank");
+window.open("https://wa.me/919997228844?text=" + encodeURIComponent(msg));
 }
