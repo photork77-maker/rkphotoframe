@@ -1,22 +1,19 @@
 body {
-font-family: 'Segoe UI', sans-serif;
+font-family: Arial;
 margin: 0;
 background: #f5f5f5;
 }
 
 /* HEADER */
 header {
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 15px;
 background: black;
 color: white;
-padding: 20px;
+text-align: center;
+padding: 15px;
 }
 
 .logo {
-width: 50px;
+height: 40px;
 }
 
 .tagline {
@@ -24,97 +21,104 @@ font-size: 14px;
 color: #ccc;
 }
 
-/* HERO */
-.hero {
-background: url('images/wall.jpg') center/cover no-repeat;
-height: 220px;
-color: white;
+/* LAYOUT */
+.container {
 display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+gap: 20px;
+padding: 20px;
 }
 
-/* MAIN */
-main {
-max-width: 500px;
-margin: 30px auto;
-background: white;
-padding: 25px;
+/* PREVIEW */
+.preview-section {
+flex: 1;
+display: flex;
+justify-content: center;
+}
+
+.wall {
+background: url('images/wall.jpg') center/cover;
+padding: 40px;
 border-radius: 10px;
 }
 
-h2 {
-margin-top: 20px;
+.frame-container {
+position: relative;
+width: 300px;
+height: 300px;
 }
 
-/* INPUTS */
-input, textarea, select {
+.photo {
 width: 100%;
-padding: 10px;
-margin-top: 8px;
-margin-bottom: 12px;
-border: 1px solid #ddd;
-border-radius: 6px;
+height: 100%;
+object-fit: cover;
+position: absolute;
+z-index: 1;
 }
 
-/* BUTTON */
+/* MOUNT */
+#mountLayer {
+position: absolute;
+top: 15px;
+left: 15px;
+right: 15px;
+bottom: 15px;
+background: white;
+z-index: 2;
+display: none;
+}
+
+/* FRAME */
+#frameLayer {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+z-index: 3;
+border: 20px solid black;
+border-radius: 5px;
+}
+
+/* FRAME TYPES */
+.frame-gold { border-color: gold; }
+.frame-black { border-color: black; }
+.frame-wood { border-color: #5c3a21; }
+.frame-brown { border-color: brown; }
+.frame-temple { border: 25px solid goldenrod; }
+.frame-vintage { border: 22px solid #c9a45c; }
+
+/* CONTROLS */
+.controls {
+flex: 1;
+background: white;
+padding: 20px;
+border-radius: 10px;
+}
+
+.frames img {
+width: 70px;
+margin: 5px;
+cursor: pointer;
+border: 2px solid transparent;
+}
+
+.frames img:hover {
+border: 2px solid black;
+}
+
+input, select, textarea {
+width: 100%;
+margin-top: 8px;
+margin-bottom: 10px;
+padding: 8px;
+}
+
 button {
 width: 100%;
-padding: 15px;
+padding: 12px;
 background: black;
 color: white;
 border: none;
+cursor: pointer;
 font-size: 16px;
-border-radius: 6px;
-cursor: pointer;
-}
-
-button:hover {
-background: #333;
-}
-
-/* WALL PREVIEW */
-.wall-preview {
-background: url('images/wall.jpg') center/cover no-repeat;
-height: 250px;
-display: flex;
-justify-content: center;
-align-items: center;
-margin: 20px 0;
-border-radius: 10px;
-}
-
-.frame {
-border: 12px solid black;
-padding: 10px;
-background: white;
-}
-
-.frame img {
-width: 200px;
-}
-
-/* GALLERY */
-.frame-gallery {
-display: flex;
-gap: 10px;
-justify-content: center;
-}
-
-.frame-gallery img {
-width: 90px;
-height: 90px;
-cursor: pointer;
-}
-
-.frame-gallery img.selected {
-border: 3px solid black;
-}
-
-/* TRUST */
-.trust {
-text-align: center;
-font-size: 14px;
-margin-top: 15px;
 }
