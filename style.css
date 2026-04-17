@@ -65,9 +65,9 @@ z-index: 1;
 
 /* MOUNT */
 #mountLayer {
-position: border;
-width: 20%;
-height: 20%;
+position: absolute;
+width: 90%;
+height: 90%;
 background: white;
 z-index: 2;
 display: none;
