@@ -36,32 +36,38 @@ justify-content: center;
 }
 
 .wall {
-background: url('images/wall.jpg') center/cover;
-padding: 40px;
+background: url('images/wall.jpg') center/cover no-repeat;
+padding: 60px;
+display: flex;
+justify-content: center;
+align-items: center;
 border-radius: 10px;
 }
 
+/* FRAME CONTAINER */
 .frame-container {
 position: relative;
-width: 300px;
-height: 300px;
+width: 350px;
+height: 350px;
+display: flex;
+justify-content: center;
+align-items: center;
+background: #ddd;
 }
 
+/* USER PHOTO */
 .photo {
-width: 100%;
-height: 100%;
+width: 85%;
+height: 85%;
 object-fit: cover;
-position: absolute;
 z-index: 1;
 }
 
 /* MOUNT */
 #mountLayer {
 position: absolute;
-top: 15px;
-left: 15px;
-right: 15px;
-bottom: 15px;
+width: 90%;
+height: 90%;
 background: white;
 z-index: 2;
 display: none;
@@ -70,15 +76,12 @@ display: none;
 /* FRAME */
 #frameLayer {
 position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
+width: 100%;
+height: 100%;
+border: 25px solid black;
 z-index: 3;
-border: 20px solid black;
-border-radius: 5px;
+box-sizing: border-box;
 }
-
 /* FRAME TYPES */
 .frame-gold { border-color: gold; }
 .frame-black { border-color: black; }
